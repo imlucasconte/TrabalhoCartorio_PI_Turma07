@@ -1,5 +1,4 @@
-package Command;
-
+package command;
 
 import java.io.IOException;
 

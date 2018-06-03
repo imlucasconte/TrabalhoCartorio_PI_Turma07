@@ -1,72 +1,59 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@page import="Negocio.Usuario" %>
 <!DOCTYPE html> 
 <html lang="pt-br">
 <head>
-	<title>Cadastre-se - Esciba Backup</title>
+<c:import url="_CODIGOS/head.jsp"/>
+	<title>Fazer login - Cart�rio Papiro</title>
 	<meta charset="utf-8">
-	<c:import url="_CODIGOS/head.jsp"/>
-	<!-- AQUI FICA O CABE�ARIO DA PAG�NA -->
-	<c:import url="_CODIGOS/menu.jsp"/>
+	<c:import url="_CODIGOS/header.jsp"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" type="text/css" href="_CSS/style.css">
 </head>
-<body style="background-image:url(_IMAGENS/cartorio.jpg);">
-							<!-- FAZER LIGON -->
-						<div>
-							<h2 id="logo" class="link logo alura al-center">
-								<hr>
-								<span id="azul">Fazer</span>
-									<span id="preto">Login</span>
-										<script type="text/javascript">
-										setTimeout("document.getElementById('azul').className = 'azul'; document.getElementById('branco').className = 'branco'", 2000);
-										</script>
-							</h2>
-						</div>
-							<!-- DIVs FORMULÁRIO -->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-md-offset-4">
-						<div class="login-panel panel panel-default">
-							<div class="panel-heading">
-								<span class=""><center>Entre com o usuário</center></span>
-									<script type="text/javascript">
-										setTimeout("document.getElementById('azul').className = 'azul'; document.getElementById('branco').className = 'branco'", 2000);
-										</script>
-						</div>
-							<div class="panel-body">
-								
-								<!--Formulário --->
-								<form method="post" action="_CONEXAO/processuser.jsp" role="form">
-													<fieldset>
-							<div class="form-group">
-											<!--Email--->
-											<label for="email" class="link">E-mail</label><input class="form-control" placeholder="E-mail" name="email" type="text" autofocus>
-							</div>
-							<div class="form-group">
-											<!--Senha--->
-											<label for="password" class="link"> Senha</label><input class="form-control" required placeholder="Senha" name="senha" type="password" value="">
-							</div>
-							<div class="checkbox">
-																																				<input name="remember" type="checkbox" value="Remember Me"><a>Lembrar </a>
-											</div>
-											<!--Logar-se --->
-							<div class="form-group">
-							<button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
-							</div>
-											<center>
-											<a href="cadastro.jsp">Cadastre-se</a><hr >
-											<a href="esquecisenha.jsp">Esqueci minha senha</a><hr>
-											</center>
-											<!--Fim Formulário --->
-											</fieldset>
-								</form>
-							</div>
-						</div>
+<body style="background: url(_IMAGENS/cartorio.jpg);">
+	<main role="main">
+			<div style="padding-top: 20px;" class="modal-dialog text-center">
+			<div class="col-sm-8 main-section">
+				<div class="modal-content">
+					<div class="col-12 user-img">
+						<img src="_IMAGENS/face.png">
 					</div>
-			 	</div>
+					
+					<form action="controller.do" method="POST"class="col-12">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Usuario</label>
+			    			<input name="usuario" id="usuario" type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+						</div>				
+						<div class="form-group">
+							<label for="exampleInputPassword1">Senha</label>
+							
+			  			    <input name="senha" id="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+						</div>
+						  <div class="controls">
+			        <button class="btn btn-success" type="submit" name="command" value=FazerLogin>Cadastrar</button>
+			      </div>
+						<div class="col-12 forgot"> 
+						<a href="cadastrar.jsp">Cadastre-se</a>
+						</div>
+					</form>
+							<%
+						String usuario = request.getParameter("usuario");
+						String senha = request.getParameter("senha");
+									
+									if(usuario!=null && senha!=null && !usuario.isEmpty() && !senha.isEmpty()){
+									session.setAttribute("usuario", usuario);
+									response.sendRedirect("logado.jsp");
+									}
+					       %>
+				 </div>
 			</div>
-									<!-- FIM DIVs FORMULÁRIO -->
-
-
- </body>
+		</div>
+  <c:import url="_CODIGOS/rodape.jsp"/> 
+</body>
 </html>
+

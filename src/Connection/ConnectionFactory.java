@@ -5,22 +5,31 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
+	//singleton da conexão - thread safe
+	private static final ThreadLocal<Connection> conn = new ThreadLocal<>();
+	
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		}catch(Exception e) {
-			System.out.println(e);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
 		}
 	}
-	
-	//Verificar se dessa forma funciona se nao adicionar o Trows
-	public static Connection realizarConexao(){
-		try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/pais?user=root&password=root");
-		}catch(SQLException e) {
-				System.out.println(e);
-				
-				}
-		return null;
-			}
+
+	// Obtém conexão com o banco de dados
+	public static Connection obterConexao() throws SQLException {
+		if (conn.get() == null){
+			conn.set(DriverManager
+					.getConnection("jdbc:mysql://localhost/database_papiro?user=root"));
+  //&password=
+		}
+		return conn.get();
+	}
+	//Fecha a conexão - usado no servlet destroy
+	public static void fecharConexao() throws SQLException {
+		if(conn.get() != null){
+			conn.get().close();
+			conn.set(null);
+		}
+	}
 }

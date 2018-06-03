@@ -1,0 +1,29 @@
+.gerenciador{position: relative; width: 100%; padding: 5px; background-color: #111; font-weight: bold;}
+.mensagem{padding: 5px; overflow: auto;}
+.over{width: 100%; height: 60%; overflow: auto;}
+
+.logotipo{width: 30%; max-width: 60px; margin-right: 1%;}
+.botaosite{padding: 7px 5px; background-color: #0069D9; border: none; color: #fff; border-radius: 5px;}
+.botaosite-maior{padding: 7px 10px; font-size: 1.5em;background-color: #0069D9; border: none; color: #fff; border-radius: 5px;}
+.window{width: 100%;height: 100%;background-color: rgba(0,0,0,0.8); position: absolute; left: 0; top: 0; text-align: center; z-index: 9999;}
+.janela{display: inline-block; width: 98%; max-width: 700px;height: 300px;background-color: #fff; margin: 5% 0;}
+.janela .gerenciador{background-color: #0069D9; font-size: 1em !important;}
+.janela span{padding: 0; color: #fff; font-size: 1.4em;}
+.fechar{position: absolute; top: 5px; right: 10px; cursor: pointer;}
+.janela p{font-size:1.5em; padding: 10px 0;}
+
+.main_contato p{font-size: 1.5em;}
+.main_contato img{width: 30%; max-width: 100px;}
+.main_contato span{display: block; text-indent: 10px; margin-bottom: 10px;}
+.main_contato span span{display: inline-block; margin-bottom: 0; text-indent: 0;}
+.main_contato a{color: #111;font-weight: bold;}
+
+.icone{width: 25px; height: 25px;  display:inline-block; margin-right: 5px !important; margin-left: 0px !important;}
+.email{background: url('../_IMAGENS/email.svg') no-repeat; background-color: gray; border-radius: 100px; background-position: center center; background-size: 100% 100%;}
+.facebook{background: url('../_IMAGENS/facebook.svg') no-repeat; background-color: gray; border-radius: 100px; background-position: center center; background-size: 100% 100%;}
+.telefone{background: url('../_IMAGENS/telefone.svg') no-repeat; background-color: gray; border-radius: 100px; background-position: center center; background-size: 100% 100%;}
+
+.al-center{text-align: center;}
+li{position: relative;}
+li:hover .hh{display: block; position: absolute; bottom: 0; left: 0;}
+.hh{display: none; height: 3px; width: 100%; background-color: #fff;}
