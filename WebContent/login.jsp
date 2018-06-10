@@ -27,15 +27,15 @@
 					<form action="controller.do" method="POST"class="col-12">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Usuario</label>
-			    			<input name="usuario" id="usuario" type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+			    			<input name="username" id="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
 						</div>				
 						<div class="form-group">
 							<label for="exampleInputPassword1">Senha</label>
 							
-			  			    <input name="senha" id="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+			  			    <input name="password" id="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
 						</div>
 						  <div class="controls">
-			        <button class="btn btn-success" type="submit" name="command" value=FazerLogin>Cadastrar</button>
+			        <button class="btn btn-success" type="submit" name="command" value=RealizarLogin>Logar</button>
 			      </div>
 						<div class="col-12 forgot"> 
 						<a href="cadastrar.jsp">Cadastre-se</a>

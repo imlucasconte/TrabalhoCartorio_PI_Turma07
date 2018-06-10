@@ -29,7 +29,7 @@ public class ListarClientesBuscar implements Command {
 		session.setAttribute("lista", lista);
 
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("ListarClientes.jsp");
+				.getRequestDispatcher("administrativo.jsp");
 		dispatcher.forward(request, response);
 	}
 }

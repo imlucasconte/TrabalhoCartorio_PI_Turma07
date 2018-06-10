@@ -44,7 +44,7 @@ public class ExcluirCliente implements Command {
 				.getAttribute("lista");
 		lista.remove(busca(cliente, lista));
 		session.setAttribute("lista", lista);
-		view = request.getRequestDispatcher("ListarClientes.jsp");
+		view = request.getRequestDispatcher("administrativo.jsp");
 		view.forward(request, response);
 
 	}

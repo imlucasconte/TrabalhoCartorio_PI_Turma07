@@ -18,8 +18,6 @@ public class CriarCliente implements Command {
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String pId = request.getParameter("id");
-		String pUsuario = request.getParameter("usuario");
-		String pSenha = request.getParameter("senha");
 		String pNome = request.getParameter("nome");
 		String pCidade = request.getParameter("cidade");
 		String pEstado = request.getParameter("estado");
@@ -39,8 +37,6 @@ public class CriarCliente implements Command {
 
 		Cliente cliente = new Cliente();
 		cliente.setId(id);
-		cliente.setUsuario(pUsuario);
-		cliente.setSenha(pSenha);
 		cliente.setNome(pNome);
 		cliente.setCidade(pCidade);
 		cliente.setEstado(pEstado);
@@ -60,7 +56,7 @@ public class CriarCliente implements Command {
 		ArrayList<Cliente> lista = new ArrayList<>();
 		lista.add(cliente);
 		session.setAttribute("lista", lista);
-		view = request.getRequestDispatcher("Menu.jsp");
+		view = request.getRequestDispatcher("cadastroUsuario.jsp");
 
 		view.forward(request, response);
 

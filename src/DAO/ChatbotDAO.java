@@ -13,14 +13,12 @@ import Model.Chatbot;
 public class ChatbotDAO {
 
 		public int criar(Chatbot chatbot) throws IOException {
-			String sqlInsert = "INSERT INTO chatbot(usuario, senha, resposta, pergunta) VALUES (?, ?, ?, ?)";
+			String sqlInsert = "INSERT INTO chatbot(resposta, pergunta) VALUES (?, ?)";
 			// pega a conexão em um try normal para que ela não seja fechada
 			try {
 				Connection conn = ConnectionFactory.obterConexao();
 				// usando o try with resources do Java 7, que fecha o que abriu
 				try (PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
-					stm.setString(1, chatbot.getUsuario());
-					stm.setString(2, chatbot.getSenha());
 					stm.setString(3, chatbot.getResposta());
 					stm.setString(4, chatbot.getPergunta());
 					stm.execute();
@@ -47,7 +45,7 @@ public class ChatbotDAO {
 		public Chatbot carregar(int id) throws IOException {
 			Chatbot chatbot = new Chatbot();
 			chatbot.setId(id);
-			String sqlSelect = "SELECT usuario, senha, resposta, pergunta FROM chatbot WHERE chatbot.id = ?";
+			String sqlSelect = "SELECT resposta, pergunta FROM chatbot WHERE chatbot.id = ?";
 			// pega a conexão em um try normal para que ela não seja fechada
 			try {
 				Connection conn = ConnectionFactory.obterConexao();
@@ -56,14 +54,10 @@ public class ChatbotDAO {
 					stm.setInt(1, chatbot.getId());
 					try (ResultSet rs = stm.executeQuery();) {
 						if (rs.next()) {
-							chatbot.setUsuario(rs.getString("usuario"));
-							chatbot.setSenha(rs.getString("senha"));
 							chatbot.setResposta(rs.getString("resposta"));
 							chatbot.setPergunta(rs.getString("pergunta"));
 						} else {
 							chatbot.setId(-1);
-							chatbot.setUsuario(null);
-							chatbot.setSenha(null);
 							chatbot.setResposta(null);
 							chatbot.setPergunta(null);
 						}

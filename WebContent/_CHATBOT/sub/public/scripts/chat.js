@@ -69,7 +69,7 @@ function userMessage(message) {
         }
         else {
             console.error('Server error for Conversation. Return status of: ', xhr.statusText);
-            displayMessage("Putz, deu um tilt aqui. Você pode tentar novamente.", watson);
+            displayMessage("Oi", watson);
         }
     };
     xhr.onerror = function () {

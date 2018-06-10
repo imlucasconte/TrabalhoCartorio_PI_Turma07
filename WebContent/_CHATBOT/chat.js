@@ -1,14 +1,3 @@
-//var isOpen = false;
-//function popupToggle(){
-//    var popup = document.getElementById("chat-popup");
-//    if(isOpen){
-//        popup.style.animationName = "popup_close";
-//        isOpen = false;
-//    }else{
-//        popup.style.animationName = "popup_open";
-//        isOpen = true;
-//    }
-//}
 $(document).ready(function () {
     var isOpen = false;
     $('.chat-header').click(function () {
@@ -41,7 +30,7 @@ $(document).ready(function () {
 
 
 var params = {},
-    watson = 'Watson',
+    chatResponde = 'chatResponde',
     context;
 
 function userMessage(message) {
@@ -51,46 +40,41 @@ function userMessage(message) {
         params.context = context;    
     }
     var xhr = new XMLHttpRequest();
-    var uri = '/api/watson';
+    var uri = '/api/chatResponde';
     xhr.open('POST', uri, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+
     xhr.onload = function () {
-        // Verify if there is a success code response and some text was sent
         if (xhr.status === 200 && xhr.responseText) {
             var response = JSON.parse(xhr.responseText);
-            text = response.output.text; // Only display the first response
-            context = response.context; // Store the context for next round of questions
-            console.log("Got response from Watson: ", JSON.stringify(response));
+            text = response.output.text;
+            context = response.context;
+            console.log("Got response from chatResponde: ", JSON.stringify(response));
            
             for (var txt in text) {
-                displayMessage(text[txt], watson);
+                displayMessage(text[txt], chatResponde);
             }
 
         }
         else {
             console.error('Server error for Conversation. Return status of: ', xhr.statusText);
-            displayMessage("Olá, ${cliente.nome } .", watson);
+            displayMessage("Olá, fale com chat.", chatResponde);
         }
     };
     xhr.onerror = function () {
         console.error('Network error trying to send message!');
-        displayMessage("Ops, acho que meu cérebro está offline. Espera um minutinho para continuarmos por favor.", watson);
+        displayMessage("Ops, acho que meu cérebro está offline. Espera um minutinho para continuarmos por favor.", chatResponde);
     };
     console.log(JSON.stringify(params));
     xhr.send(JSON.stringify(params));
 }
 
 function newEvent(event) {
-    // Only check for a return/enter press - Event 13
     if (event.which === 13 || event.keyCode === 13) {
         var userInput = document.getElementById('chatInput');
-        text = userInput.value; // Using text as a recurring variable through functions
+        text = userInput.value;
         text = text.replace(/(\r\n|\n|\r)/gm, ""); // Remove erroneous characters
-        // If there is any input then check if this is a claim step
-        // Some claim steps are handled in newEvent and others are handled in userMessage
         if (text) {
-            // Display the user's text in the chat box and null out input box
-            //            userMessage(text);
+
             displayMessage(text, 'user');
             userInput.value = '';
             userMessage(text);
@@ -112,7 +96,7 @@ function displayMessage(text, user) {
         bubble.className += " user";
     }
     else {
-        bubble.className += " watson";
+        bubble.className += " chatResponde";
     }
     bubble.innerHTML = text;
     chat_body.appendChild(bubble);

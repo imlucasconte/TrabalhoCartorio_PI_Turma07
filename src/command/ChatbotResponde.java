@@ -14,13 +14,18 @@ import Service.ChatbotService;
 
 public class ChatbotResponde implements Command {
 
+		
+	
+	public static void main(String args[]) {
+		
+		System.out.println("resposta");
+	}
+		
 		@Override
 		public void executar(HttpServletRequest request,
 				HttpServletResponse response) throws ServletException, IOException {
 			String pId = request.getParameter("id");
-			String pUsuario = request.getParameter("usuario");
-			String pSenha= request.getParameter("senha");
-			String pResposta = request.getParameter("respsota");
+			String pResposta = request.getParameter("resposta");
 			String pPergunta = request.getParameter("pergunta");
 			int id = -1;
 			try {
@@ -31,23 +36,12 @@ public class ChatbotResponde implements Command {
 	
 			Chatbot chatbot = new Chatbot();
 			chatbot.setId(id);
-			chatbot.setUsuario(pUsuario);
-			chatbot.setSenha(pSenha);
 			chatbot.setResposta(pResposta);
 			chatbot.setPergunta(pPergunta);
-			ChatbotService cs = new ChatbotService();
-	
-			RequestDispatcher view = null;
-			HttpSession session = request.getSession();
-	
-			cs.criar(chatbot);
-			ArrayList<Chatbot> lista = new ArrayList<>();
-			lista.add(chatbot);
-			session.setAttribute("lista", lista);
-			view = request.getRequestDispatcher("Menu.jsp");
-	
-			view.forward(request, response);
-
+			
+			String resposta = "ola";
+			
+             
 	}
 
 	}

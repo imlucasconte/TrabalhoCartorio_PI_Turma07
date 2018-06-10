@@ -13,24 +13,22 @@ import Model.Cliente;
 
 public class ClienteDAO {
 	public int criar(Cliente cliente) throws IOException {
-		String sqlInsert = "INSERT INTO cliente(usuario, senha, nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sqlInsert = "INSERT INTO cliente(nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		// pega a conexão em um try normal para que ela não seja fechada
 		try {
 			Connection conn = ConnectionFactory.obterConexao();
 			// usando o try with resources do Java 7, que fecha o que abriu
 			try (PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
-				stm.setString(1, cliente.getUsuario());
-				stm.setString(2, cliente.getSenha());
-				stm.setString(3, cliente.getNome());
-				stm.setString(4, cliente.getCidade());
-				stm.setString(5, cliente.getEstado());
-				stm.setString(6, cliente.getBairro());
-				stm.setString(7, cliente.getLogradouro());
-				stm.setString(8, cliente.getNumero());
-				stm.setString(9, cliente.getComplemento());
-				stm.setString(10, cliente.getCep());
-				stm.setString(11, cliente.getFone());
-				stm.setString(12, cliente.getEmail());
+				stm.setString(1, cliente.getNome());
+				stm.setString(2, cliente.getCidade());
+				stm.setString(3, cliente.getEstado());
+				stm.setString(4, cliente.getBairro());
+				stm.setString(5, cliente.getLogradouro());
+				stm.setString(6, cliente.getNumero());
+				stm.setString(7, cliente.getComplemento());
+				stm.setString(8, cliente.getCep());
+				stm.setString(9, cliente.getFone());
+				stm.setString(10, cliente.getEmail());
 				stm.execute();
 				String sqlQuery = "SELECT LAST_INSERT_ID()";
 				try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
@@ -54,25 +52,23 @@ public class ClienteDAO {
 	}
 
 	public void atualizar(Cliente cliente) throws IOException {
-		String sqlUpdate = "UPDATE cliente SET usuario=?, senha=?, nome=?, cidade=?, estado=?, bairro=?, logradouro=?, numero=?, complemento=?, cep=?, fone=?, email=? WHERE id=?";
+		String sqlUpdate = "UPDATE cliente SET nome=?, cidade=?, estado=?, bairro=?, logradouro=?, numero=?, complemento=?, cep=?, fone=?, email=? WHERE id=?";
 		// pega a conexão em um try normal para que ela não seja fechada
 		try {
 			Connection conn = ConnectionFactory.obterConexao();
 			// usando o try with resources do Java 7, que fecha o que abriu
 			try (PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-				stm.setString(1, cliente.getUsuario());
-				stm.setString(2, cliente.getSenha());
-				stm.setString(3, cliente.getNome());
-				stm.setString(4, cliente.getCidade());
-				stm.setString(5, cliente.getEstado());
-				stm.setString(6, cliente.getBairro());
-				stm.setString(7, cliente.getLogradouro());
-				stm.setString(8, cliente.getNumero());
-				stm.setString(9, cliente.getComplemento());
-				stm.setString(10, cliente.getCep());
-				stm.setString(11, cliente.getFone());
-				stm.setString(12, cliente.getEmail());
-				stm.setInt(15, cliente.getId());
+				stm.setString(1, cliente.getNome());
+				stm.setString(2, cliente.getCidade());
+				stm.setString(3, cliente.getEstado());
+				stm.setString(4, cliente.getBairro());
+				stm.setString(5, cliente.getLogradouro());
+				stm.setString(6, cliente.getNumero());
+				stm.setString(7, cliente.getComplemento());
+				stm.setString(8, cliente.getCep());
+				stm.setString(9, cliente.getFone());
+				stm.setString(10, cliente.getEmail());
+				stm.setInt(11, cliente.getId());
 				stm.execute();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -106,7 +102,7 @@ public class ClienteDAO {
 	public Cliente carregar(int id) throws IOException {
 		Cliente cliente = new Cliente();
 		cliente.setId(id);
-		String sqlSelect = "SELECT usuario, senha, nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email FROM cliente WHERE cliente.id = ?";
+		String sqlSelect = "SELECT nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email FROM cliente WHERE cliente.id = ?";
 		// pega a conexão em um try normal para que ela não seja fechada
 		try {
 			Connection conn = ConnectionFactory.obterConexao();
@@ -115,8 +111,6 @@ public class ClienteDAO {
 				stm.setInt(1, cliente.getId());
 				try (ResultSet rs = stm.executeQuery();) {
 					if (rs.next()) {
-						cliente.setUsuario(rs.getString("usuario"));
-						cliente.setSenha(rs.getString("senha"));
 						cliente.setNome(rs.getString("nome"));
 						cliente.setCidade(rs.getString("cidade"));
 						cliente.setEstado(rs.getString("Estado"));
@@ -128,8 +122,6 @@ public class ClienteDAO {
 						cliente.setFone(rs.getString("fone"));
 					} else {
 						cliente.setId(-1);
-						cliente.setUsuario(null);
-						cliente.setSenha(null);
 						cliente.setNome(null);
 						cliente.setCidade(null);
 						cliente.setBairro(null);
@@ -163,15 +155,13 @@ public class ClienteDAO {
 		// pega a conexão em um try normal para que ela não seja fechada
 		try {
 			Connection conn = ConnectionFactory.obterConexao();
-			String sqlSelect = "SELECT id, usuario, senha, nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, emailFROM cliente";
+			String sqlSelect = "SELECT id, nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email FROM cliente";
 			// usando o try with resources do Java 7, que fecha o que abriu
 			try (PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 				try (ResultSet rs = stm.executeQuery();) {
 					while (rs.next()) {
 						cliente = new Cliente();
 						cliente.setId(rs.getInt("id"));
-						cliente.setUsuario(rs.getString("usuario"));
-						cliente.setSenha(rs.getString("senha"));
 						cliente.setNome(rs.getString("nome"));
 						cliente.setCidade(rs.getString("cidade"));
 						cliente.setEstado(rs.getString("Estado"));
@@ -201,7 +191,7 @@ public class ClienteDAO {
 	public ArrayList<Cliente> listarClientes(String chave) throws IOException {
 		Cliente cliente;
 		ArrayList<Cliente> lista = new ArrayList<>();
-		String sqlSelect = "SELECT id, usuario, senha, nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email FROM cliente where upper(nome) like ?";
+		String sqlSelect = "SELECT id, nome, cidade, estado, bairro, logradouro, numero, complemento, cep, fone, email FROM cliente where upper(nome) like ?";
 		// pega a conexão em um try normal para que ela não seja fechada
 		try {
 			Connection conn = ConnectionFactory.obterConexao();
@@ -212,8 +202,6 @@ public class ClienteDAO {
 					while (rs.next()) {
 						cliente = new Cliente();
 						cliente.setId(rs.getInt("id"));
-						cliente.setUsuario(rs.getString("usuario"));
-						cliente.setSenha(rs.getString("senha"));
 						cliente.setNome(rs.getString("nome"));
 						cliente.setCidade(rs.getString("cidade"));
 						cliente.setEstado(rs.getString("estado"));

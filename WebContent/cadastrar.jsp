@@ -14,19 +14,9 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
-          
+                    
           <form action="controller.do" method="post">
             <!-- area de campos do form -->
-            <div  class="row"> 
-            	<div class="form-group col-md-6">
-					<label for="nome">Usuario</label>
-					<input type="text" class="form-control" name="usuario" id="usuario" required maxlength="16" placeholder="Usuario">        	
-            	</div>
-            	<div class="form-group col-md-6">
-            		<label for="nome">Senha</label>
-                    <input type="password" class="form-control" name="senha" id="senha" required maxlength="18" placeholder="Senha">
-            	</div>
-            </div>
             
             <div class="row">
                 <div class="form-group col-md-12">
@@ -131,6 +121,10 @@
             </div>
         </form>
     </div>
+    
+    	
+    
+    
               <c:import url="_CODIGOS/rodape.jsp"/> 
           
           

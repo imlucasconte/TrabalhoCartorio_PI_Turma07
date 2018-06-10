@@ -73,7 +73,7 @@ body {
 }
 
 .chat-popup .chat-header {
-    background-color: #e6e6e6;
+    background-color: #3898ff;
     height: 40px;
     border-top-left-radius: 4px;
     display: flex;
@@ -170,14 +170,14 @@ body {
     transform: rotate(29deg) skew(-35deg);
 }
 
-.chat-popup .chat-body .bubble.watson {
+.chat-popup .chat-body .bubble.chatResponde {
     color: #fff;
     background-color: #00b0ff;
     align-self: flex-start;
     margin-left: 20px;
 }
 
-.chat-popup .chat-body .bubble.watson:before {
+.chat-popup .chat-body .bubble.chatResponde:before {
     left: -18px;
     background-color: #00b0ff;
 }

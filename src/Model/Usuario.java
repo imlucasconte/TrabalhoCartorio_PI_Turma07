@@ -13,7 +13,7 @@ public class Usuario implements Serializable {
 
 
 
-	public Usuario(String usuario, byte[] senha) {
+	public Usuario(String usuario, String senha) {
 		super();
 		this.usuario = usuario;
 		this.senha = senha;
@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
 
 
 	private String usuario;
-	private byte[] senha;
+	private String senha;
 	
 	public String getUsuario() {
 		return usuario;
@@ -35,12 +35,12 @@ public class Usuario implements Serializable {
 	}
 
 
-	public byte[] getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
 
-	public void setSenha(byte[] senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 

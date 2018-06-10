@@ -19,22 +19,6 @@ public class Chatbot implements Serializable {
 		this.id = id;
 	}
 
-	public String getUsuario() {
-		return usuario;
-	}	
-
-	public void setUsuario(String usuairo) {
-		this.usuario = usuairo;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public String getResposta() {
 		return resposta;
 	}
