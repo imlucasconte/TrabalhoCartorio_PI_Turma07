@@ -17,7 +17,7 @@
                 <div id="main" class="container">
                     <h3 class="page-header">Alterar Cliente #${cliente.id }</h3>
                     <!-- Formulario para alteração de clientes -->
-                    <form action="controller.do" method="post">
+             <form action="controller.do" method="post">
                         <!-- area de campos do form -->
                         <input type="hidden" name="id" value="${cliente.id }" />
                        
@@ -33,7 +33,7 @@
 					<label for="nome">Cidade</label>
 					<input type="text" class="form-control" name="cidade" id="cidade" required maxlength="220" placeholder="Cidade">        	
             	</div>
-   <!--  
+   
        	      <div class="form-group col-md-2">
             		<label for="nome">UF</label>
 				 <select type="text" class="form-control" id="estado" name="estado" required maxlength="2" placeholder="UF">
@@ -67,19 +67,15 @@
 				    <option value="TO">TO</option>
 				</select>
             	</div>
-            	-->
-            <div class="form-group col-md-2">
+     <!--    <div class="form-group col-md-2">
             		<label for="nome">Estado</label>
                     <input type="text" class="form-control" id="estado" name="estado" required maxlength="2" placeholder="Estado">
-            	</div>
-    
+            	</div>    -->
               <div class="form-group col-md-4">
             		<label for="nome">CEP</label>
                     <input type="text" class="form-control" id="cep" name="cep" required maxlength="9" OnKeyPress="formatar('#####-###', this)" placeholder="CEP">
             	</div>
             </div>       
-            
-             
             <div class="row">
           	  <div class="form-group col-md-6">
             		<label for="nome">Bairro</label>
@@ -90,9 +86,7 @@
                     <input type="text" class="form-control" name="logradouro" id="logradouro" required maxlength="100" placeholder="Logradouro">
             	</div>
             </div>
-           	
            	<div class="row">
-
             	<div class="form-group col-md-8">
             		<label for="nome">Complemento</label>
                     <input type="text" class="form-control" name="complemento" id="complemento" required maxlength="100" placeholder="Complemento">
@@ -117,18 +111,14 @@
             </div>
             </div>      
                         <hr />         
-                                                               
                         <div align="center" id="actions" class="row">
                             <div  class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="command" value="AlterarCliente">Salvar</button>
                                 <a href="administrativo.jsp" class="btn btn-default">Cancelar</a>
                             </div>
-                            
                         </div>
-                    </form>
-                </div>
+                   </form>
                 <script src="js/jquery.min.js"></script>
                 <script src="js/bootstrap.min.js"></script>
         </body>
-
         </html>

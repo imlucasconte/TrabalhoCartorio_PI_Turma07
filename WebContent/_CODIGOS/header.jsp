@@ -14,19 +14,24 @@
               <a class="nav-link" href="funcionarios.jsp">FUNCIONARIOS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contato.jsp">CONTATO <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="contato.jsp">ATENDIMENTO <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="cadastrar.jsp">CADASTR-SE <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="cadastrar.jsp">CADASTRE-SE <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login.jsp">LOGIN <span class="sr-only">(current)</span></a>
             </li>
           </ul>
+          <li class="nav-item">
+              <a class="nav-link" href="chatbot.jsp">CHATBOT <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <!-- 
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="botaosite" type="submit">Search</button>
-          </form>
+          </form> -->
         </div>
       </nav>
     </header>

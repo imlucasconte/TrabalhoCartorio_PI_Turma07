@@ -1,32 +1,4 @@
-$(document).ready(function () {
-    var isOpen = false;
-    $('.chat-header').click(function () {
-        if (isOpen) {
-            isOpen = false;
-            $('.chat-popup').css({
-                "animation-name": "popup_close"
-            });
-            $('.chat-body').css({
-                "animation-name": "hide_chat"
-            });
-            $('.chat-footer').css({
-                "animation-name": "hide_chat"
-            });
-        }
-        else {
-            isOpen = true;
-            $('.chat-popup').css({
-                "animation-name": "popup_open"
-            });
-            $('.chat-body').css({
-                "animation-name": "show_chat"
-            });
-            $('.chat-footer').css({
-                "animation-name": "show_chat"
-            });
-        }
-    });
-});
+
 
 
 var params = {},
@@ -53,11 +25,10 @@ function userMessage(message) {
             for (var txt in text) {
                 displayMessage(text[txt], chatResponde);
             }
-
         }
         else {
             console.error('Server error for Conversation. Return status of: ', xhr.statusText);
-            displayMessage("Olá, fale com chat.", chatResponde);
+            displayMessage("Efetue login para falar com o Chat bot", chatResponde);
         }
     };
     xhr.onerror = function () {

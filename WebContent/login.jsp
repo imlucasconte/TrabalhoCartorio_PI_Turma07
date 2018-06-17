@@ -22,7 +22,7 @@
 				<div class="modal-content">
 					<div class="col-12 user-img">
 						<img src="_IMAGENS/face.png">
-					</div>
+					</div> 
 					
 					<form action="controller.do" method="POST"class="col-12">
 						<div class="form-group">
@@ -39,6 +39,8 @@
 			      </div>
 						<div class="col-12 forgot"> 
 						<a href="cadastrar.jsp">Cadastre-se</a>
+						</br>
+						<a href="login_adm.jsp">Usuario avançado</a>
 						</div>
 					</form>
 							<%

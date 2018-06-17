@@ -13,7 +13,7 @@ public class UsuarioDAO {
 	
 	public int criarUsuario (Usuario usuario) throws IOException {
 		String sqlInsert = "INSERT INTO usuario (usuario, senha) VALUES (?, ?)";
-		// pega a conex√£o em um try normal para que ela n√£o seja fechada
+		// pega a conex„o em um try normal para que ela n„o seja fechada
 		try {
 			Connection conn = ConnectionFactory.obterConexao();
 			// usando o try with resources do Java 7, que fecha o que abriu

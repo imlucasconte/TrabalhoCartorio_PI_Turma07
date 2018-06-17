@@ -3,19 +3,12 @@
 <!doctype html>
 <html lang="en">
     <c:import url="_CODIGOS/head.jsp"/>
+    <title>Cadastre-se - Papiro Cartório</title>
   <body>
-  	<title>Cadastre-se - Papiro Cartório</title>
-    <c:import url="_CHATBOT/chatbot.jsp"/> 
     <c:import url="_CODIGOS/header.jsp"/> 
-	
-    <main role="main">
-<body>
-					
 	 <div style="padding-top: 60px;" class="container marketing">
-
         <!-- Three columns of text below the carousel -->
         <div class="row">
-        
 	<form action="controller.do" method="post">
             <div  class="row"> 
             	<div class="form-group col-md-6">
@@ -34,11 +27,8 @@
                 </div>
             </div>
            </form>
-
               <c:import url="_CODIGOS/rodape.jsp"/> 
-          
           </div><!-- /.row -->
         </div><!-- /.row -->
- 
   </body>
 </html>

@@ -3,6 +3,8 @@ package Service;
 import java.io.IOException;
 
 import Model.Cliente;
+import Model.Conversa;
+import Service.ConversaService;
 import DAO.ClienteDAO;
 
 
@@ -23,6 +25,13 @@ public class ClienteService {
 	
 	public Cliente carregar(int id) throws IOException {
 		return dao.carregar(id);
+	}
+
+	ConversaService cs = new ConversaService();
+
+	public int Conversa0(Conversa conv) {
+		cs.Conversa01(conv);
+		return   conv.getId_conversa() ;
 	}
 
 }

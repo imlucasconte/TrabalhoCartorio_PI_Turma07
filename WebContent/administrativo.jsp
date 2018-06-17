@@ -1,19 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    <!DOCTYPE html>
-  <html lang="pt-br">
+  <HTML lang="pt-br">
 
 <head>
-		    <title>Plataforma Administradora - Papiro Cartorio</title>
+	    <title>Plataforma Administradora - Papiro Cartorio</title>
 		<meta charset="utf-8">
 		<c:import url="_CODIGOS/head.jsp"/>
-
 	    <link href="_ADM/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="_ADM/css/simple-sidebar.css" rel="stylesheet">
 </head>
         <body>
-         <c:import  url="_CODIGOS/header.jsp"/> 
-         <c:import url="_CHATBOT/chatbot.jsp"/>
+         <c:import  url="_CODIGOS/header.jsp"/>  
 
         <div  id="wrapper">		
         <!-- Sidebar -->
@@ -28,10 +26,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="_ADM/dashboard.jsp">Dashboard</a>
+                    <a href="_ADM/dashboard.jsp">Relatorio</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="chatadm.jsp">Chatbot</a>
                 </li>
                 <li>
                     <a href="#">Overview</a>
@@ -41,7 +39,6 @@
                 </li>
             </ul>
         </div>
-
 
         <!-- Page Content -->
         <div   id="page-content-wrapper">
@@ -71,8 +68,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /.modal -->
-            <!-- Barra superior com os menus de navegação -->
 		
             <!-- Container Principal -->
             <div id="main" class="container">
@@ -81,7 +76,6 @@
                         <div class="col-md-3">
                             <h2>Clientes</h2>
                         </div>
-
                         <div class="col-md-6">
                             <div class="input-group h2">
                                 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Clientes (deixe vazio para trazer todos)">
@@ -92,17 +86,14 @@
                                 </span>
                             </div>
                         </div>
-
                         <div class="col-md-3">
                             <a href="cadastrar.jsp" class="btn btn-primary pull-right h2">Novo Cliente</a>
                         </div>
                     </div>
-                    <!-- /#top -->
                 </form>
                 
                 <c:if test="${not empty lista}">
                 <div id="list" class="row">
-
                     <div class="table-responsive col-md-12">
                         <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
@@ -166,33 +157,17 @@
 
                     </div>
                 </div>
-                <!-- /#list -->
 
-                <div id="bottom" class="row">
-                    <div class="col-md-12">
-                        <!-- paginação ainda não foi implementada -->
-                        <ul class="pagination">
-                            <li class="disabled"><a>&lt; Anterior</a>
-                            </li>
-                            <li class="disabled"><a>1</a>
-                            </li>
-                            <li><a href="#">2</a>
-                            </li>
-                            <li><a href="#">3</a>
-                            </li>
-                            <li class="next"><a href="#" rel="next">Próximo &gt;</a>
-                            </li>
-                        </ul>
-                        <!-- /.pagination -->
-                    </div>
-                </div>
                 </c:if>
                 <!-- /#bottom -->
             </div>
         </div>
     </div>
-
-<c:import url="_CODIGOS/rodape.jsp"/> 
+<!-- FOOTER -->
+      <footer style="text-align: center; padding-top: 350px;" class="container" >
+        <a href="#"><span class="float-right botaosite">TOPO</span></a>
+        <p>&copy; 2017-2018 PAPIRO, Inc. &middot; <a  href="#">Todos os direitos Resevados</a> &middot;</p>
+      </footer> 
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -205,10 +180,6 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-        
-        
-       
-            <!-- /#main -->
             <script src="_JS/jquery.min.js"></script>
             <script src="_JS/bootstrap.min.js"></script>
             <script type="text/javascript">
@@ -219,5 +190,4 @@
                 });
             </script>
         </body>
-
-        </html>
+     </html>

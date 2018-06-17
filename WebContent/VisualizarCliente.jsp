@@ -65,7 +65,7 @@
                         <div class="col-md-12">
                            <a class="btn btn-warning btn-xs" href="controller.do?command=EditarCliente&id=${cliente.id }">Editar</a>
                                                                             <button id="btn${cliente.id }%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-cliente="${cliente.id }">Excluir</button>
-                            <a href="ListarClientes.jsp" class="btn btn-default">Voltar</a>
+                            <a href="administrativo.jsp" class="btn btn-default">Voltar</a>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 package Service;
 import Model.Usuario;
+import Model.Atend_Conversa;
+import Service.AtendimentoService;
 
 import java.io.IOException;
 
@@ -19,5 +21,10 @@ public class UsuarioService {
 	public int criarUsuario(Usuario usuario) throws IOException {
 		return dao.criarUsuario(usuario);
 	}
-	
+	AtendimentoService cs = new AtendimentoService();
+
+	public int Conversa_00at(Atend_Conversa atd){
+		cs.AdicionaPergunta(atd);
+		return atd.getId_atendimento();
+	}
 }

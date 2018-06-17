@@ -1,19 +1,23 @@
 package Service;
 
-import java.io.IOException;
 
-import Model.Chatbot;
-import DAO.ChatbotDAO;
+import Model.PalavraChave;
+import Model.Resposta;
+
+import java.util.ArrayList;
+
 
 public class ChatbotService {
-	ChatbotDAO dao = new ChatbotDAO();
-	
-	public int responder(Chatbot chatbot) throws IOException {
-		return dao.criar(chatbot);
-	}
-	
-	public Chatbot perguntar(int id) throws IOException {
-		return dao.carregar(id);
-	}
 
+	public PalavraChaveService palavraChaveService = new PalavraChaveService();
+	public RespostaService respostaService = new RespostaService();
+	public Resposta buscaResposta(String pergunta) {
+		
+		ArrayList<PalavraChave> palavraChaves =  palavraChaveService.encontraPalavrasChavesPorPergunta(pergunta);
+		return RespostaService.buscaRespostaApropriada(palavraChaves);
+	}
+	public Resposta SimBotaoo(String pergunta){
+		ArrayList<PalavraChave> palavraChaves =  palavraChaveService.encontraPalavrasChavesPorPergunta(pergunta);
+		return RespostaService.SimBotao(palavraChaves);
+	}
 }
